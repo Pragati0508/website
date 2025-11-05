@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trinova Innovation | Sign Up</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+      --primary-color: #00d4ff;
+      --secondary-color: #00a8e8;
+      --dark-bg: #0a1929;
+      --light-bg: #1e3a5f;
+      --text-light: #ffffff;
+      --text-gray: #a0aec0;
+      --gradient-1: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+      --gradient-2: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80") no-repeat center center/cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      z-index: 0;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background: rgba(26, 31, 58, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .top-bar .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .top-bar-left {
+      color: var(--text-gray);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .top-bar-left i {
+      color: var(--secondary-color);
+    }
+
+    .top-bar-right a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin-left: 25px;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+
+    .top-bar-right a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Main Header */
+    .main-header {
+      background: rgba(10, 14, 39, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid transparent;
+      border-image: var(--gradient-2) 1;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+      filter: brightness(1.2);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover img {
+      transform: scale(1.05);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 45px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 8px 0;
+      position: relative;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--gradient-2);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: var(--secondary-color);
+    }
+
+    .cart-button {
+      background: var(--gradient-2);
+      padding: 12px 24px !important;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 5px 20px rgba(0, 102, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .cart-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.6);
+    }
+
+    .cart-button::after {
+      display: none;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Signup Container */
+    .signup-container {
+      position: relative;
+      background: rgba(10, 14, 39, 0.85);
+      backdrop-filter: blur(20px);
+      padding: 45px 40px;
+      border-radius: 25px;
+      box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 1s ease;
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      overflow: hidden;
+    }
+
+    .signup-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 50%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .signup-container * {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .signup-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-2);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+    }
+
+    .signup-icon i {
+      font-size: 40px;
+      color: white;
+    }
+
+    .signup-container h2 {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 32px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: var(--text-gray);
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .input-group {
+      position: relative;
+      margin: 15px 0;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .input-group label i {
+      color: var(--primary-color);
+      margin-right: 6px;
+    }
+
+    .signup-container input {
+      width: 100%;
+      padding: 14px 40px 14px 16px;
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      outline: none;
+      font-size: 15px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .signup-container input::placeholder {
+      color: var(--text-gray);
+    }
+
+    .signup-container input:focus {
+      border-color: var(--primary-color);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 14px;
+      top: 42px;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text-gray);
+      transition: color 0.3s;
+    }
+
+    .toggle-password:hover {
+      color: var(--primary-color);
+    }
+
+    .signup-container button {
+      width: 100%;
+      padding: 16px;
+      margin-top: 25px;
+      background: var(--gradient-2);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .signup-container button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 212, 255, 0.6);
+    }
+
+    .signup-container button i {
+      font-size: 18px;
+    }
+
+    .signup-container p {
+      margin-top: 20px;
+      font-size: 15px;
+      color: var(--text-gray);
+    }
+
+    .signup-container a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .signup-container a:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+
+    #error-message {
+      color: #ff6b6b;
+      margin-bottom: 15px;
+      font-size: 14px;
+      padding: 10px;
+      background: rgba(255, 107, 107, 0.1);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 107, 107, 0.3);
+    }
+
+    #error-message:empty {
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(30, 58, 95, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 60px 0 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand h3 {
+      font-size: 24px;
+      background: var(--gradient-2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+
+    .footer-brand p {
+      color: var(--text-gray);
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-links a:hover {
+      background: var(--gradient-2);
+      transform: translateY(-5px);
+      border-color: transparent;
+    }
+
+    .footer-section h4 {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: var(--text-light);
+    }
+
+    .footer-section a {
+      display: block;
+      color: var(--text-gray);
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--secondary-color);
+      padding-left: 5px;
+    }
+
+    .newsletter input {
+      width: 100%;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      outline: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .newsletter input:focus {
+      border-color: var(--primary-color);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .newsletter button {
+      width: 100%;
+      padding: 12px;
+      background: var(--gradient-2);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .newsletter button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-gray);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 20px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      .signup-container {
+        padding: 35px 25px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <i class="fas fa-phone"></i> 8545803412
+        <span style="margin: 0 10px;">|</span>
+        <i class="fas fa-envelope"></i> Trinovainnovation.contact@gmail.com
+      </div>
+      <div class="top-bar-right">
+        <a href="signin.html"><i class="fas fa-user"></i> SIGN IN</a>
+        <a href="signup.html"><i class="fas fa-user-plus"></i> SIGN UP</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="public/logo.png" alt="Trinova Innovation Logo">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html" class="cart-button"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="signup-container">
+      <div class="signup-icon">
+        <i class="fas fa-user-plus"></i>
+      </div>
+      <h2>Create Account</h2>
+      <div class="tagline">Join Trinova Innovation to enjoy faster checkout, track orders & secure shopping experience.</div>
+      
+      <p id="error-message"></p>
+
+      <form id="form" action="#" method="POST">
+        <div class="input-group">
+          <label for="fullname"><i class="fas fa-user"></i> Full Name</label>
+          <input type="text" id="fullname" name="name" placeholder="Enter your full name" required />
+        </div>
+        
+        <div class="input-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        </div>
+        
+        <div class="input-group">
+          <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required />
+        </div>
+        
+        <div class="input-group">
+          <label for="address"><i class="fas fa-map-marker-alt"></i> Delivery Address</label>
+          <input type="text" id="address" name="address" placeholder="Enter delivery address" required />
+        </div>
+        
+        <div class="input-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="password" name="password" placeholder="Create a password" required />
+          <span class="toggle-password" onclick="togglePassword('password')">
+            <i class="fas fa-eye"></i>
+          </span>
+        </div>
+        
+        <div class="input-group">
+          <label for="confirm-password"><i class="fas fa-lock"></i> Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required />
+          <span class="toggle-password" onclick="togglePassword('confirm-password')">
+            <i class="fas fa-eye"></i>
+          </span>
+        </div>
+        
+        <button type="submit">
+          <span>Create Account</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+      
+      <p>Already have an account? <a href="signin.html">Sign In here</a></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>TRINOVA INNOVATION</h3>
+        <p>Empowering businesses with innovative technology solutions that drive growth, efficiency, and digital transformation.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/in/trinova-innovation-1b1784387"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/trinova_innovation?igsh=MW83a3dlejB1dnU0bg=="><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <a href="tel:8545803412"><i class="fas fa-phone"></i> 8545803412</a>
+        <a href="mailto:Trinovainnovation.contact@gmail.com"><i class="fas fa-envelope"></i> Email Us</a>
+        <a href="#"><i class="fas fa-map-marker-alt"></i> Phoenix Marketcity Pune</a>
+      </div>
+      <div class="footer-section newsletter">
+        <h4>Newsletter</h4>
+        <p style="color: var(--text-gray); margin-bottom: 12px; font-size: 13px;">Subscribe to get latest updates and news</p>
+        <input type="email" placeholder="Your email address">
+        <button>Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Trinova Innovation. All rights reserved. | Design and Code by Trinova Technical</p>
+    </div>
+  </footer>
+
+  <script>
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      const icon = input.nextElementSibling.querySelector('i');
+      
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = "password";
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    const form = document.getElementById('form');
+    const fullname = document.getElementById('fullname');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const address = document.getElementById('address');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm-password');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const errors = [];
+      
+      if (!fullname.value.trim()) errors.push('Full name is required');
+      if (!email.value.trim()) errors.push('Email is required');
+      if (!phone.value.trim()) errors.push('Phone number is required');
+      if (!address.value.trim()) errors.push('Delivery address is required');
+      if (!password.value.trim()) errors.push('Password is required');
+      if (password.value !== confirmPassword.value) errors.push('Passwords do not match');
+
+      if (errors.length) {
+        errorMessage.innerText = errors.join('. ');
+        return;
+      }
+
+      const payload = {
+        fullname: fullname.value.trim(),
+        email: email.value.trim(),
+        phone: phone.value.trim(),
+        address: address.value.trim(),
+        password: password.value,
+      };
+
+      try {
+        const res = await fetch('http://localhost:5000/api/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          errorMessage.innerText = data.error || data.message || 'Signup failed';
+          return;
+        }
+
+        errorMessage.style.color = '#90ee90';
+        errorMessage.style.background = 'rgba(144, 238, 144, 0.1)';
+        errorMessage.style.borderColor = 'rgba(144, 238, 144, 0.3)';
+        errorMessage.innerText = data.message || 'Account created successfully! Redirecting...';
+        setTimeout(() => { window.location.href = 'signin.html'; }, 1200);
+      } catch (err) {
+        errorMessage.innerText = 'Network error. Try again later.';
+      }
+    });
+  </script>
+
+</body>
+</html>
